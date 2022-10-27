@@ -30,3 +30,47 @@ scotland$TIME <- strptime(scotland$TIME, format ="%d/%m/%Y %H:%M")
 
 ```
 
+General overview of windspeeds
+
+```{r}
+library(ggplot2)
+library(magrittr)
+library(zoo)
+
+ireland_ws <- ireland %>%
+  ggplot(aes(x = as.POSIXct(TIME), y = WS)) +
+  geom_line(aes(y=rollmean(WS, 336, na.pad=TRUE)), color = "blue") + 
+  #coord_x_date(xlim = c("2015-01-01", "2015-31-12")) + # Zoom in
+  labs(x = "Time", y = "Average Windspeed (m/s)", title = "Windspeed (weekly average)", subtitle = "Ireland") +
+  theme_minimal() +
+  theme(text = element_text(size = 20))
+ireland_ws
+
+netherlands_ws <- netherlands %>%
+  ggplot(aes(x = as.POSIXct(TIME), y = WS)) +
+  geom_line(aes(y=rollmean(WS, 336, na.pad=TRUE)), color = "blue") + 
+  #coord_x_date(xlim = c("2015-01-01", "2015-31-12")) + # Zoom in
+  labs(x = "Time", y = "Average Windspeed (m/s)", title = "Windspeed (weekly average)", subtitle = "Netherlands") +
+  theme_minimal() +
+  theme(text = element_text(size = 20))
+netherlands_ws
+
+sardinia_ws <- sardinia %>%
+  ggplot(aes(x = as.POSIXct(TIME), y = WS)) +
+  geom_line(aes(y=rollmean(WS, 336, na.pad=TRUE)), color = "blue") + 
+  #coord_x_date(xlim = c("2015-01-01", "2015-31-12")) + # Zoom in
+  labs(x = "Time", y = "Average Windspeed (m/s)", title = "Windspeed (weekly average)", subtitle = "Sardinia") +
+  theme_minimal() +
+  theme(text = element_text(size = 20))
+sardinia_ws
+
+scotland_ws <- scotland %>%
+  ggplot(aes(x = as.POSIXct(TIME), y = WS)) +
+  geom_line(aes(y=rollmean(WS, 336, na.pad=TRUE)), color = "blue") + 
+  #coord_x_date(xlim = c("2015-01-01", "2015-31-12")) + # Zoom in
+  labs(x = "Time", y = "Average Windspeed (m/s)", title = "Windspeed (weekly average)", subtitle = "Scotland") +
+  theme_minimal() +
+  theme(text = element_text(size = 20))
+scotland_ws
+```
+
