@@ -1,0 +1,32 @@
+---
+title: "Read_in_data_R"
+author: "Christoph Koller"
+date: "27 10 2022"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+Read in separate csv files
+
+```{r}
+ireland <- read.csv("Data/Ireland.csv")
+ireland <- ireland[,c(2:9)]
+ireland$TIME <- strptime(ireland$TIME, format ="%d/%m/%Y %H:%M")
+
+netherlands <- read.csv("Data/Netherlands.csv")
+netherlands <- netherlands[,c(2:9)]
+netherlands$TIME <- strptime(netherlands$TIME, format ="%d/%m/%Y %H:%M")
+
+sardinia <- read.csv("Data/Sardinia.csv")
+sardinia <- sardinia[,c(2:9)]
+sardinia$TIME <- strptime(sardinia$time, format ="%d/%m/%Y %H:%M")
+
+scotland <- read.csv("Data/Scotland.csv")
+scotland <- scotland[,c(2:9)]
+scotland$TIME <- strptime(scotland$TIME, format ="%d/%m/%Y %H:%M")
+
+```
+
