@@ -39,38 +39,57 @@ library(zoo)
 
 ireland_ws <- ireland %>%
   ggplot(aes(x = as.POSIXct(TIME), y = WS)) +
-  geom_line(aes(y=rollmean(WS, 336, na.pad=TRUE)), color = "blue") + 
+  geom_line(aes(y=rollmean(WS, 6, na.pad=TRUE)), color = "blue") + 
   #coord_x_date(xlim = c("2015-01-01", "2015-31-12")) + # Zoom in
-  labs(x = "Time", y = "Average Windspeed (m/s)", title = "Windspeed (weekly average)", subtitle = "Ireland") +
+  geom_hline(yintercept = 3.25, linetype = "dashed", color = "red", size = 1) + 
+  geom_hline(yintercept = 28, linetype = "dashed", color = "red", size = 1) + 
+  labs(x = "Time", y = "Average Windspeed (m/s)", title = "Windspeed (3 hour average)", subtitle = "Ireland") +
   theme_minimal() +
   theme(text = element_text(size = 20))
 ireland_ws
 
 netherlands_ws <- netherlands %>%
   ggplot(aes(x = as.POSIXct(TIME), y = WS)) +
-  geom_line(aes(y=rollmean(WS, 336, na.pad=TRUE)), color = "blue") + 
+  geom_line(aes(y=rollmean(WS, 6, na.pad=TRUE)), color = "blue") + 
   #coord_x_date(xlim = c("2015-01-01", "2015-31-12")) + # Zoom in
-  labs(x = "Time", y = "Average Windspeed (m/s)", title = "Windspeed (weekly average)", subtitle = "Netherlands") +
+  geom_hline(yintercept = 3.25, linetype = "dashed", color = "red", size = 1) + 
+  geom_hline(yintercept = 28, linetype = "dashed", color = "red", size = 1) + 
+  labs(x = "Time", y = "Average Windspeed (m/s)", title = "Windspeed (3 hour average)", subtitle = "Netherlands") +
   theme_minimal() +
   theme(text = element_text(size = 20))
 netherlands_ws
 
 sardinia_ws <- sardinia %>%
   ggplot(aes(x = as.POSIXct(TIME), y = WS)) +
-  geom_line(aes(y=rollmean(WS, 336, na.pad=TRUE)), color = "blue") + 
+  geom_line(aes(y=rollmean(WS, 6, na.pad=TRUE)), color = "blue") + 
   #coord_x_date(xlim = c("2015-01-01", "2015-31-12")) + # Zoom in
-  labs(x = "Time", y = "Average Windspeed (m/s)", title = "Windspeed (weekly average)", subtitle = "Sardinia") +
+  geom_hline(yintercept = 3.25, linetype = "dashed", color = "red", size = 1) + 
+  geom_hline(yintercept = 28, linetype = "dashed", color = "red", size = 1) + 
+  labs(x = "Time", y = "Average Windspeed (m/s)", title = "Windspeed (3 hour average)", subtitle = "Sardinia") +
   theme_minimal() +
   theme(text = element_text(size = 20))
 sardinia_ws
 
 scotland_ws <- scotland %>%
   ggplot(aes(x = as.POSIXct(TIME), y = WS)) +
-  geom_line(aes(y=rollmean(WS, 336, na.pad=TRUE)), color = "blue") + 
+  geom_line(aes(y=rollmean(WS, 6, na.pad=TRUE)), color = "blue") + 
   #coord_x_date(xlim = c("2015-01-01", "2015-31-12")) + # Zoom in
-  labs(x = "Time", y = "Average Windspeed (m/s)", title = "Windspeed (weekly average)", subtitle = "Scotland") +
+  geom_hline(yintercept = 3.25, linetype = "dashed", color = "red", size = 1) + 
+  geom_hline(yintercept = 28, linetype = "dashed", color = "red", size = 1) + 
+  labs(x = "Time", y = "Average Windspeed (m/s)", title = "Windspeed (3 hour average)", subtitle = "Scotland") +
   theme_minimal() +
   theme(text = element_text(size = 20))
 scotland_ws
+```
+```{r}
+mean(ireland$POWER) * 34.37 * 48 / 1000
+mean(scotland$POWER) * 34.37 * 48 / 1000
+mean(sardinia$POWER) * 34.37 * 48 / 1000
+mean(netherlands$POWER) * 34.37 * 48 / 1000
+
+mean(ireland$POWER[(ireland$POWER > 0)]) * 34.37 * 48 / 1000
+mean(scotland$POWER[(scotland$POWER > 0)]) * 34.37 * 48 / 1000
+mean(sardinia$POWER[(sardinia$POWER > 0)]) * 34.37 * 48 / 1000
+mean(netherlands$POWER[(netherlands$POWER > 0)]) * 34.37 * 48 / 1000
 ```
 
