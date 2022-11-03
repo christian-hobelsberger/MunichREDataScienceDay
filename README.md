@@ -5,7 +5,7 @@ As part of the [Munich RE Data Science Day 2022](https://www.munichre.com/landin
 Check out the  [Task](Additional_Files/Task_4_Instructions.docx) and [Analysis Notebook](windfarm_analysis_chris.ipynb) for more information regarding the project!
 
 Contributors were:
-* [ChrisKo94]([https://github.com/christian-hobelsberger/](https://github.com/ChrisKo94))
+* [ChrisKo94](https://github.com/ChrisKo94)
 * [Christian Hobelsberger](https://github.com/christian-hobelsberger/)
-* [Faheem Zunjani]([https://github.com/christian-hobelsberger/](https://github.com/faheemzunjani))
-* [Alexa]([https://github.com/christian-hobelsberger/](https://github.com/aleksaorwx))
+* [Faheem Zunjani](https://github.com/faheemzunjani)
+* [Alexa](https://github.com/aleksaorwx)
